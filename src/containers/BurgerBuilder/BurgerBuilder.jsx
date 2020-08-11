@@ -60,7 +60,7 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let purchasable = !(totalPrice > 4);
-
+    console.log(disabledInfo);
     return (
       <Aux>
         <p>{`Total Burger Price is ${totalPrice}`}</p>

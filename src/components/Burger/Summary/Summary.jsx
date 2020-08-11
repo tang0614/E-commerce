@@ -1,7 +1,7 @@
 import React from "react";
-import Module from "../UI/Model/Module";
-import Backdrop from "../UI/Backdrop/Backdrop";
-
+import Module from "../../UI/Model/Module";
+import Backdrop from "../../UI/Backdrop/Backdrop";
+import Button from "../../UI/Button/Button";
 const Summary = ({
   ingredients,
   totalPrice,
@@ -25,8 +25,9 @@ const Summary = ({
         <ul>{ingredientSummary}</ul>
         <h3>{`Total Price : $ ${totalPrice}`}</h3>
         <p>{"Continue to checkout?"}</p>
-        <button onClick={submitBill}>Continue</button>
-        <button onClick={notPurchasing}>Cancel</button>
+
+        <Button onClick={submitBill}>Continue</Button>
+        <Button onClick={notPurchasing}>Cancel</Button>
       </Module>
     </Backdrop>
   );
