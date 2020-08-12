@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
-
+import { withRouter } from "react-router-dom";
 const Burger = ({ ingredient }) => {
   let ingredientCompo = Object.keys(ingredient).map((name) =>
     [...Array(ingredient[name])].map((_, id) => {
@@ -27,4 +27,4 @@ const Burger = ({ ingredient }) => {
   );
 };
 
-export default Burger;
+export default withRouter(Burger);

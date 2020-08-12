@@ -57,20 +57,35 @@ class BurgerBuilder extends Component {
 
   submitBill = (totalPrice) => {
     this.setState({ loading: true });
-    const newOrder = {
-      ingredient: this.state.ingredient,
-      price: totalPrice,
-      customer: {
-        name: "Anna Tang",
-        address: {
-          street: "195 RockIsland RD",
-        },
-      },
-    };
-    instance
-      .post("/orders.json", newOrder)
-      .then((res) => this.setState({ loading: false, purchase: false }))
-      .catch((error) => this.setState({ loading: false, purchase: false }));
+
+    const queryParams = [];
+    for (let key in this.state.ingredient) {
+      queryParams.push(
+        encodeURIComponent(key) +
+          "=" +
+          encodeURIComponent(this.state.ingredient[key])
+      );
+    }
+    const queryString = queryParams.join("&");
+
+    this.props.history.push({
+      pathname: "/checkout",
+      search: "?" + queryString,
+    });
+    // const newOrder = {
+    //   ingredient: this.state.ingredient,
+    //   price: totalPrice,
+    //   customer: {
+    //     name: "Anna Tang",
+    //     address: {
+    //       street: "195 RockIsland RD",
+    //     },
+    //   },
+    // };
+    // instance
+    //   .post("/orders.json", newOrder)
+    //   .then((res) => this.setState({ loading: false, purchase: false }))
+    //   .catch((error) => this.setState({ loading: false, purchase: false }));
   };
 
   render() {

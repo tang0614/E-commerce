@@ -1,8 +1,12 @@
 import React from "react";
-
-const Button = ({ onClick, disable, children }) => {
+import Classes from "./Button.module.css";
+const Button = ({ onClick, disable, children, btnType }) => {
   return (
-    <button onClick={onClick} disable={disable}>
+    <button
+      className={[Classes.Button, Classes[btnType]].join(" ")}
+      onClick={onClick}
+      disable={disable}
+    >
       {children}
     </button>
   );

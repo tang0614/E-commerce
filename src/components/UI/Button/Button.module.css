@@ -5,3 +5,9 @@
 .Danger {
   color: #944317;
 }
+
+.Button {
+  padding: 10px;
+  margin: 5px;
+  border: transparent;
+}

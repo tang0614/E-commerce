@@ -19,8 +19,12 @@ const Summary = ({ ingredients, totalPrice, notPurchasing, submitBill }) => {
       <h3>{`Total Price : $ ${totalPrice}`}</h3>
       <p>{"Continue to checkout?"}</p>
 
-      <Button onClick={submitBill}>Continue</Button>
-      <Button onClick={notPurchasing}>Cancel</Button>
+      <Button onClick={submitBill} btnType={"Success"}>
+        Continue
+      </Button>
+      <Button onClick={notPurchasing} btnType={"Danger"}>
+        Cancel
+      </Button>
     </Aux>
   );
 };
