@@ -1,9 +1,11 @@
-import React from "react";
-import Layout from "./components/Layout/layout";
+import React, { Component } from "react";
+import Layout from "./containers/Layout/layout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 
-const App = () => {
-  return <Layout>{<BurgerBuilder />}</Layout>;
-};
+class app extends Component {
+  render() {
+    return <Layout>{<BurgerBuilder />}</Layout>;
+  }
+}
 
-export default App;
+export default app;

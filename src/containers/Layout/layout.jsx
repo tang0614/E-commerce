@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Aux from "../../hoc/aux";
 import classes from "./layout.module.css";
-import Toolbar from "../Navigation/Toolbar";
-import Sidedrawer from "../Navigation/Sidedrawer/Sidedrawer";
+import Toolbar from "../../components/Navigation/Toolbar";
+import Sidedrawer from "../../components/Navigation/Sidedrawer/Sidedrawer";
 
 class Layout extends Component {
   state = {
@@ -13,10 +13,6 @@ class Layout extends Component {
     this.setState((preState) => {
       return { showSidedrawer: !preState.showSidedrawer };
     });
-  };
-
-  updateW = () => {
-    this.setState({ width: window.innerWidth });
   };
 
   render() {
