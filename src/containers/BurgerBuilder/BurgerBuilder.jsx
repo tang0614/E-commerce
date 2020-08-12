@@ -55,7 +55,14 @@ class BurgerBuilder extends Component {
     this.setState({ purchase });
   };
 
-  submitBill = (totalPrice) => {
+  submitBill = () => {
+    const disabledInfo = { ...this.state.ingredient };
+    let totalPrice = 4;
+    for (let key in disabledInfo) {
+      totalPrice += disabledInfo[key] * INGREDIENT_PRICE[key];
+      disabledInfo[key] = disabledInfo[key] <= 0;
+    }
+
     this.setState({ loading: true });
 
     const queryParams = [];
@@ -66,26 +73,13 @@ class BurgerBuilder extends Component {
           encodeURIComponent(this.state.ingredient[key])
       );
     }
+    queryParams.push("price=" + totalPrice);
     const queryString = queryParams.join("&");
 
     this.props.history.push({
       pathname: "/checkout",
       search: "?" + queryString,
     });
-    // const newOrder = {
-    //   ingredient: this.state.ingredient,
-    //   price: totalPrice,
-    //   customer: {
-    //     name: "Anna Tang",
-    //     address: {
-    //       street: "195 RockIsland RD",
-    //     },
-    //   },
-    // };
-    // instance
-    //   .post("/orders.json", newOrder)
-    //   .then((res) => this.setState({ loading: false, purchase: false }))
-    //   .catch((error) => this.setState({ loading: false, purchase: false }));
   };
 
   render() {

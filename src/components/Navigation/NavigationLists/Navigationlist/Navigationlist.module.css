@@ -12,7 +12,6 @@
   text-decoration: none;
 }
 
-.Navigationlist a:hover,
 .Navigationlist a:active,
 .Navigationlist a.active {
   background-color: #8f5c2c;

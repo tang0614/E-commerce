@@ -4,7 +4,7 @@ import classes from "./Navigationlists.module.css";
 
 const links = [
   { name: "BurgerBuilder", address: "/" },
-  { name: "Checkout", address: "/" },
+  { name: "Checkout", address: "/orders" },
 ];
 const Navigationlists = (props) => {
   const lists_dir =
