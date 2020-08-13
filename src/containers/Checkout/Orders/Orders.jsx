@@ -8,6 +8,7 @@ class Orders extends Component {
     loading: true,
   };
   componentDidMount() {
+    console.log("componentDidMount");
     instance
       .get("/orders.json")
       .then((res) => {
@@ -22,7 +23,7 @@ class Orders extends Component {
       });
   }
   render() {
-    console.log(this.state.orders);
+    console.log("orders are", this.state.orders);
     return (
       <div>
         {this.state.orders.map((order) => {
