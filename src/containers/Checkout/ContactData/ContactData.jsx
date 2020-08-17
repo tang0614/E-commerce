@@ -129,6 +129,7 @@ class ContactData extends Component {
       customer: { ...this.state.orderForm },
       totalPrice: this.props.totalPrice,
       ingredient: this.props.ingredient,
+      userId: this.props.userId,
     };
 
     instance
@@ -184,6 +185,7 @@ const mapStateToProps = (state) => {
   return {
     ingredient: state.burgerBuilder.ingredient,
     totalPrice: state.burgerBuilder.totalPrice,
+    userId: state.auth.userId,
   };
 };
 

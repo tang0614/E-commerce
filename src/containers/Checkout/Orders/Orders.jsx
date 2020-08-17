@@ -10,8 +10,15 @@ class Orders extends Component {
     loading: true,
   };
   componentDidMount() {
+    const query =
+      `?auth=` +
+      this.props.token +
+      `&orderBy="userId"&equalTo="` +
+      this.props.userId +
+      `"`;
+
     instance
-      .get("/orders.json?auth=" + this.props.token)
+      .get(`/orders.json` + query)
       .then((res) => {
         let orders = [];
         for (let key in res.data) {
@@ -41,6 +48,7 @@ class Orders extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.auth.token,
+    userId: state.auth.userId,
   };
 };
 

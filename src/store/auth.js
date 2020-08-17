@@ -69,7 +69,7 @@ const auth = (email, password, isSignUp) => {
         dispatch(checkAuth(res.data.expiresIn));
       })
       .catch((err) => {
-        dispatch(authFail(err));
+        dispatch(authFail(err.message));
       });
   };
 };

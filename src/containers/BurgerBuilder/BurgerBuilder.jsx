@@ -135,7 +135,7 @@ const mapStateToProps = (state) => {
   return {
     ingredient: state.burgerBuilder.ingredient,
     totalPrice: state.burgerBuilder.totalPrice,
-    isAuthenticated: state.burgerBuilder.isAuthenticated,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 const mapDispatchToProps = (dispatch) => {
