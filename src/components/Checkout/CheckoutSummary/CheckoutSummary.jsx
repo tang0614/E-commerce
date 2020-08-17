@@ -3,32 +3,37 @@ import Burger from "../../Burger/Burger";
 import Button from "../../UI/Button/Button";
 import Classes from "./CheckoutSummary.module.css";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class CheckoutSummary extends Component {
   cancelHandler = () => {
-    console.log("go back");
     this.props.history.goBack();
   };
   continueHandler = () => {
-    console.log("continue");
     this.props.history.push("/checkout/data");
   };
+
   render() {
     return (
       <div className={Classes.CheckoutSummary}>
-        <h2>We hope it takes well</h2>
+        <h2>We hope it tastes well</h2>
         <div style={{ width: "100%" }}>
           <Burger ingredient={this.props.ingredient} />
         </div>
         <Button btnType="Danger" onClick={this.cancelHandler}>
-          Cancel
+          Cancel this order
         </Button>
         <Button btnType="Success" onClick={this.continueHandler}>
-          Continue
+          Confirm & Continue
         </Button>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    ingredient: state.burgerBuilder.ingredient,
+  };
+};
 
-export default withRouter(CheckoutSummary);
+export default connect(mapStateToProps)(withRouter(CheckoutSummary));

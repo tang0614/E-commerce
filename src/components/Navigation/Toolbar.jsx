@@ -10,7 +10,7 @@ const Toolbar = (props) => {
         <Logo sideDrawerHandler={props.sideDrawerHandler} />
       </div>
       <nav className={classes.Desktop}>
-        <Navigationlists />
+        <Navigationlists isAuthenticated={props.isAuthenticated} />
       </nav>
     </div>
   );

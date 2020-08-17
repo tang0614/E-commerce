@@ -10,7 +10,7 @@ import Module from "../../components/UI/Model/Module";
 import withErrorHandler from "../../hoc/withErrorHandler";
 import { connect } from "react-redux";
 import * as actionTypes from "../../store/actions";
-
+import * as actions from "../../store/auth";
 class BurgerBuilder extends Component {
   state = {
     purchased: false,
@@ -41,12 +41,15 @@ class BurgerBuilder extends Component {
   };
 
   purchasing = () => {
-    const purchased = true;
-    this.setState({ purchased });
+    if (this.props.isAuthenticated) {
+      this.setState({ purchased: true });
+    } else {
+      this.props.redirectPath("/checkout");
+      this.props.history.push("/auth");
+    }
   };
   notPurchasing = () => {
-    const purchased = false;
-    this.setState({ purchased });
+    this.setState({ purchased: false });
   };
 
   submitBill = () => {
@@ -97,6 +100,7 @@ class BurgerBuilder extends Component {
             purchased={this.state.purchased}
             purchasing={this.purchasing}
             purchasable={purchasable}
+            isAuthenticated={this.props.isAuthenticated}
           />
         </Aux>
       );
@@ -129,8 +133,9 @@ class BurgerBuilder extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ingredient: state.ingredient,
-    totalPrice: state.totalPrice,
+    ingredient: state.burgerBuilder.ingredient,
+    totalPrice: state.burgerBuilder.totalPrice,
+    isAuthenticated: state.burgerBuilder.isAuthenticated,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -139,6 +144,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: actionTypes.ADD_INGREDIENT, name: ingName }),
     removeIngredient: (ingName) =>
       dispatch({ type: actionTypes.REMOVE_INGREDIENT, name: ingName }),
+    redirectPath: (path) => dispatch(actions.setAuthRedirectPath(path)),
   };
 };
 

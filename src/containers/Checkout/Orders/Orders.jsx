@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import Order from "../../../components/Checkout/Order/Order";
 import instance from "../../../axios-order";
 import withErrorHandler from "../../../hoc/withErrorHandler";
+import { connect } from "react-redux";
+
 class Orders extends Component {
   state = {
     orders: [],
     loading: true,
   };
   componentDidMount() {
-    console.log("componentDidMount");
     instance
-      .get("/orders.json")
+      .get("/orders.json?auth=" + this.props.token)
       .then((res) => {
         let orders = [];
         for (let key in res.data) {
@@ -23,21 +24,24 @@ class Orders extends Component {
       });
   }
   render() {
-    console.log("orders are", this.state.orders);
     return (
       <div>
-        {this.state.orders.map((order) => {
-          return (
-            <Order
-              key={order.id}
-              ingredient={order.ingredient}
-              price={order.price}
-            />
-          );
-        })}
+        {this.state.orders.map((order) => (
+          <Order
+            key={order.id}
+            ingredient={order.ingredient}
+            price={order.totalPrice}
+          />
+        ))}
       </div>
     );
   }
 }
 
-export default withErrorHandler(Orders, instance);
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token,
+  };
+};
+
+export default connect(mapStateToProps)(withErrorHandler(Orders, instance));
