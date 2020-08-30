@@ -151,7 +151,6 @@ class ContactData extends Component {
           valid={element.valid}
           touched={element.touched}
           key={id}
-          elementName={element.elementName}
           elementConfig={element.elementConfig}
           elementType={element.elementType}
           value={element.value}

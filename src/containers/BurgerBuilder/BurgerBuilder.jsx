@@ -11,6 +11,7 @@ import withErrorHandler from "../../hoc/withErrorHandler";
 import { connect } from "react-redux";
 import * as actionTypes from "../../store/actions";
 import * as actions from "../../store/auth";
+import Classes from "./BurgerBuilder.module.css";
 class BurgerBuilder extends Component {
   state = {
     purchased: false,
@@ -119,7 +120,9 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <p>{`Total Burger Price is ${this.props.totalPrice}`}</p>
+        <p
+          className={Classes.Price}
+        >{`Total Burger Price is ${this.props.totalPrice}`}</p>
         {burger}
         {
           <Backdrop close={this.notPurchasing} show={this.state.purchased}>

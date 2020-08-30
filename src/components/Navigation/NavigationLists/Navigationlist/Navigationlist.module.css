@@ -7,7 +7,7 @@
 .Navigationlist a {
   box-sizing: border-box;
   display: block;
-  color: green;
+  color: white;
   padding: 10px 0;
   text-decoration: none;
 }
@@ -16,7 +16,7 @@
 .Navigationlist a.active {
   background-color: #8f5c2c;
   border-bottom: 4px solid #4084c8;
-  color: #40a4cb;
+  color: white;
 }
 
 @media (min-width: 500px) {

@@ -117,10 +117,11 @@ class Auth extends Component {
       formInputs = <Spinner />;
     }
 
-    let errorMessage = null;
+    let errorMessage = "";
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+      errorMessage = <p style={{ color: "red" }}>{this.props.error}</p>;
     }
+    console.log("this.props.error", this.props.error);
 
     let redirect = null;
     if (this.props.isAuthenticated) {
@@ -129,14 +130,15 @@ class Auth extends Component {
     return (
       <div className={Classes.Auth}>
         {redirect}
-        {errorMessage}
 
         <form onSubmit={this.submitHandler}>
           {formInputs}
+          {errorMessage}
           <Button btnType={"Success"} disable={!this.state.formIsValid}>
             {"Submit"}
           </Button>
         </form>
+
         <Button btnType="Danger" onClick={this.switch}>
           SWITCH TO {this.state.isSignUp ? "SIGNIN" : "SIGNUP"}
         </Button>

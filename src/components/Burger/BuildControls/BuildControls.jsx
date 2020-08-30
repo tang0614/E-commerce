@@ -33,6 +33,7 @@ const BuildControls = ({
         className={classes.OrderButton}
         disabled={purchasable}
         onClick={purchasing}
+        style={{ margin: "20px" }}
       >
         {isAuthenticated ? "ORDER NOW" : "SIGNUP/IN TO ORDER"}
       </button>

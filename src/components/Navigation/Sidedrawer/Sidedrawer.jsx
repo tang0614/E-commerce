@@ -14,7 +14,7 @@ const Sidedrawer = (props) => {
     <Aux>
       <Backdrop show={props.show} close={props.onClick} />
       <div className={attachedClasses.join(" ")}>
-        <Navigationlists direction="col" />
+        <Navigationlists direction="col" links={props.links} />
       </div>
     </Aux>
   );

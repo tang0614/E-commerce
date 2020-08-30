@@ -16,7 +16,9 @@ const Summary = ({ ingredients, totalPrice, notPurchasing, submitBill }) => {
       <h2>{"Your Order"}</h2>
       <h3>{"Delicious ingredients inside this burger"}</h3>
       <ul>{ingredientSummary}</ul>
-      <h3>{`Total Price : $ ${totalPrice}`}</h3>
+      <h3>{`Total Price : $ ${
+        Math.round((totalPrice + Number.EPSILON) * 100) / 100
+      }`}</h3>
       <p>{"Continue to checkout?"}</p>
 
       <Button onClick={submitBill} btnType={"Success"}>

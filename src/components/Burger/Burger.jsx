@@ -14,7 +14,9 @@ const Burger = ({ ingredient }) => {
   }, []);
 
   if (finalIngredientCompo.length === 0) {
-    finalIngredientCompo = <p>Please adding ingredient</p>;
+    finalIngredientCompo = (
+      <p style={{ fontSize: "16px" }}>Please add ingredient</p>
+    );
   }
 
   return (

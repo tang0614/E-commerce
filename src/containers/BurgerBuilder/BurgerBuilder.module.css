@@ -39,3 +39,10 @@
     transform: scale(1);
   }
 }
+
+.Price {
+  display: block;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}

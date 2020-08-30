@@ -16,16 +16,18 @@ class CheckoutSummary extends Component {
   render() {
     return (
       <div className={Classes.CheckoutSummary}>
-        <h2>We hope it tastes well</h2>
+        <h2>Order Confirmation</h2>
         <div style={{ width: "100%" }}>
           <Burger ingredient={this.props.ingredient} />
         </div>
-        <Button btnType="Danger" onClick={this.cancelHandler}>
-          Cancel this order
-        </Button>
-        <Button btnType="Success" onClick={this.continueHandler}>
-          Confirm & Continue
-        </Button>
+        <div>
+          <Button btnType="Danger" onClick={this.cancelHandler}>
+            Cancel
+          </Button>
+          <Button btnType="Success" onClick={this.continueHandler}>
+            Continue
+          </Button>
+        </div>
       </div>
     );
   }

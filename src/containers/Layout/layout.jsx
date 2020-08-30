@@ -16,13 +16,24 @@ class Layout extends Component {
   };
 
   render() {
+    let links = [];
+    if (this.props.isAuthenticated) {
+      links = [
+        { name: "BurgerBuilder", address: "/" },
+        { name: "Checkout", address: "/orders" },
+        { name: "Logout", address: "/logout" },
+      ];
+    } else {
+      links = [
+        { name: "BurgerBuilder", address: "/" },
+        { name: "SignUp/In", address: "/auth" },
+      ];
+    }
     return (
       <Aux>
-        <Toolbar
-          isAuthenticated={this.props.isAuthenticated}
-          sideDrawerHandler={this.sideDrawerHandler}
-        />
+        <Toolbar links={links} sideDrawerHandler={this.sideDrawerHandler} />
         <Sidedrawer
+          links={links}
           show={this.state.showSidedrawer}
           onClick={this.sideDrawerHandler}
         />

@@ -18,7 +18,18 @@ const success = (state, action) => {
 };
 
 const fail = (state, action) => {
-  return updateObject(state, { error: action.error, loading: false });
+  let errors;
+  if (action.error.response) {
+    errors = action.error.response.data.error.message;
+  } else {
+    errors = action.error;
+  }
+  console.log("failed", errors);
+
+  return updateObject(state, {
+    error: errors,
+    loading: false,
+  });
 };
 
 const authStart = (state, action) => {
