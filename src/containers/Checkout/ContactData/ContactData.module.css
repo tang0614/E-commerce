@@ -1,11 +1,12 @@
 .ContactData {
   margin: 20px auto;
-  width: 80%;
+  width: 50%;
   text-align: center;
-  box-shadow: 0 2px 3px #ccc;
-  border: 1px solid #eee;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
   padding: 10px;
   box-sizing: border-box;
+  background-color: #9fa933;
 }
 
 .Input {

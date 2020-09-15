@@ -1,14 +1,12 @@
 .Order {
-  width: 100%;
-  border: 1px solide #ccc;
-  box-shadow: 0 2px 3px #ccc;
-  padding: 20px;
-  margin: 10px auto;
-  box-sizing: border-box;
-}
+  display: block;
 
-@media (min-width: 768px) {
-  .Order {
-    padding: 30px;
-  }
+  width: 90%;
+  margin: 0 auto;
+
+  color: #9fa933;
+
+  box-shadow: 0 2px 3px rgb(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  font-size: 1rem;
 }

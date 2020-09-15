@@ -4,7 +4,7 @@
   padding: 10px 0;
   margin: auto;
 
-  background-color: #cf8f3e;
+  background-color: #91532e;
   width: 100%;
 
   box-shadow: 0 2px 1px #ccc;
@@ -12,22 +12,22 @@
 }
 
 .OrderButton {
-  background-color: #dad735;
+  background-color: #e6ab5d;
   outline: none;
   cursor: pointer;
-  border: 1px solid #966909;
-  color: #966909;
+  border: 1px solid #e6ab5d;
+  color: black;
   font-family: inherit;
   font-size: 1.2em;
   padding: 15px 30px;
   box-shadow: 2px 2px 2px #966909;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .OrderButton:hover,
 .OrderButton:active {
-  background-color: #a0db41;
   border: 1px solid #966909;
-  color: #966909;
+  color: #f7f3eb;
 }
 
 .OrderButton:disabled {

@@ -14,9 +14,9 @@
 
 .Navigationlist a:active,
 .Navigationlist a.active {
-  background-color: #8f5c2c;
-  border-bottom: 4px solid #4084c8;
-  color: white;
+  background-color: #e37d18;
+  border-bottom: 4px solid #492c0a;
+  color: #e3dcd5;
 }
 
 @media (min-width: 500px) {
@@ -27,7 +27,7 @@
   }
 
   .Navigationlist a {
-    color: white;
+    color: #e3dcd5;
 
     text-decoration: none;
     padding: 16px 10px;
@@ -37,6 +37,6 @@
   .Navigationlist a:hover,
   .Navigationlist a:active,
   .Navigationlist a.active {
-    color: white;
+    color: #492c0a;
   }
 }

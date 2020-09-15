@@ -19,12 +19,12 @@ const success = (state, action) => {
 
 const fail = (state, action) => {
   let errors;
+
   if (action.error.response) {
     errors = action.error.response.data.error.message;
   } else {
-    errors = action.error;
+    errors = "invalid credential, please try again";
   }
-  console.log("failed", errors);
 
   return updateObject(state, {
     error: errors,
@@ -37,13 +37,14 @@ const authStart = (state, action) => {
 };
 
 const authLogOut = (state, action) => {
-  return updateObject(state, { token: null, userId: null });
+  return updateObject(state, { token: null, userId: null, error: null });
 };
 
 const setAuthRedirectPath = (state, action) => {
   console.log("redirecting path.....");
   return updateObject(state, { redirect: action.path });
 };
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
@@ -56,6 +57,7 @@ const reducer = (state = initialState, action) => {
       return authLogOut(state, action);
     case actionTypes.SET_AUTH_REDIRECT_PATH:
       return setAuthRedirectPath(state, action);
+
     default:
       return state;
   }

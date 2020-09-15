@@ -120,10 +120,12 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <p
-          className={Classes.Price}
-        >{`Total Burger Price is ${this.props.totalPrice}`}</p>
-        {burger}
+        <div className={Classes.Burger}>
+          <p
+            className={Classes.Price}
+          >{`Total Burger Price is : $ ${this.props.totalPrice.toFixed(2)}`}</p>
+          {burger}
+        </div>
         {
           <Backdrop close={this.notPurchasing} show={this.state.purchased}>
             <Module show={this.state.purchased}>{summary}</Module>

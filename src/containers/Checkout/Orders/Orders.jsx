@@ -4,6 +4,8 @@ import instance from "../../../axios-order";
 import withErrorHandler from "../../../hoc/withErrorHandler";
 import { connect } from "react-redux";
 
+import Classes from "./Orders.module.css";
+
 class Orders extends Component {
   state = {
     orders: [],
@@ -35,6 +37,7 @@ class Orders extends Component {
       <div>
         {this.state.orders.map((order) => (
           <Order
+            className={Classes.Orders}
             key={order.id}
             ingredient={order.ingredient}
             price={order.totalPrice}

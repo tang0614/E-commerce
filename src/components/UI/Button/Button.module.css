@@ -1,18 +1,26 @@
 .Success {
-  color: #5c9210;
+  color: #5d8127;
 }
 
 .Danger {
-  color: #944317;
+  color: #b85e36;
 }
 
 .Button {
   padding: 10px;
   margin: 5px;
   border: transparent;
+  background-color: #fbdf18;
+  border-radius: 10%;
+  outline: none;
 }
 
 .Button:disabled {
   color: #ccc;
   cursor: not-allowed;
+}
+
+.Button:hover,
+:focus {
+  color: #b85e36;
 }

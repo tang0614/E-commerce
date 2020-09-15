@@ -16,7 +16,7 @@ class CheckoutSummary extends Component {
   render() {
     return (
       <div className={Classes.CheckoutSummary}>
-        <h2>Order Confirmation</h2>
+        <h2 style={{ color: " #B85E36" }}>Order Confirmation</h2>
         <div style={{ width: "100%" }}>
           <Burger ingredient={this.props.ingredient} />
         </div>
